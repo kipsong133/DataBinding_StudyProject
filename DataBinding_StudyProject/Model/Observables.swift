@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Observables<T> {
+class Observable<T> {
     private var listener: ((T) -> Void)?
     
     var value: T {
