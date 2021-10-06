@@ -8,22 +8,30 @@
 import Foundation
 
 class ViewModel: ObservableViewModelProtocol {
+    typealias T = Int
     
-    func fetchData() {
-        print("DEBUG: 데이터를 가져옵니다.")
-    }
-    
-    func setError(_ message: String) {
-        print("DEBUG: 에러메세지 \(message)")
-    }
-    
+    // MARK: - Properties
     var dataSource: Observable<[Int]> = Observable([])
     
     var errorMessage: Observable<String?> = Observable(nil)
     
     var error: Observable<Bool> = Observable(false)
     
-    typealias T = Int
+    
+    // MARK: - Lifecycle
+    init() { }
     
     
+    // MARK: - Helpers
+    func fetchData() {
+        print("DEBUG: 데이터를 가져옵니다.")
+        /* 데이터를 가져온 후, 원하는 로직을 작성합니다.*/
+    }
+    
+    func setError(_ message: String) {
+        print("DEBUG: 에러메세지 \(message)")
+        /* 에러 발생 시, 처리할 로직을 작성합니다.*/
+        self.errorMessage = Observable(message)
+        self.error = Observable(true)
+    }
 }
