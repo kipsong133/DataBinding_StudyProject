@@ -19,13 +19,21 @@ class ViewModel: ObservableViewModelProtocol {
     
     
     // MARK: - Lifecycle
-    init() { }
+    init() {
+        /* dummy data*/
+        dataSource.value = Array(1...4)
+    }
     
     
     // MARK: - Helpers
     func fetchData() {
         print("DEBUG: 데이터를 가져옵니다.")
         /* 데이터를 가져온 후, 원하는 로직을 작성합니다.*/
+    }
+    
+    func addData(_ new: Int) {
+        /* 데이터를 추가합니다. */
+        dataSource.value.append(new)
     }
     
     func setError(_ message: String) {
