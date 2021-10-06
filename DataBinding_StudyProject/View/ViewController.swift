@@ -34,6 +34,9 @@ class ViewController: UIViewController {
         viewModel.addData(new)
     }
     
+    @IBAction func deleteButtonDidTap(_ sender: UIBarButtonItem) {
+        viewModel.deleteData()
+    }
     
     // MARK: - Helpers
     private func setUpTableView() {

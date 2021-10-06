@@ -36,6 +36,12 @@ class ViewModel: ObservableViewModelProtocol {
         dataSource.value.append(new)
     }
     
+    func deleteData() {
+        /* 데이터를 삭제합니다.*/
+        guard dataSource.value.count != 0 else { return }
+        dataSource.value.remove(at: 0)
+    }
+    
     func setError(_ message: String) {
         print("DEBUG: 에러메세지 \(message)")
         /* 에러 발생 시, 처리할 로직을 작성합니다.*/
